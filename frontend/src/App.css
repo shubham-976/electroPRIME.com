@@ -1,0 +1,32 @@
+*{
+    margin:0;
+    scroll-behavior: smooth;
+}
+/* to remove arrows in -input+ */
+/* chrome safari edge opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* firefox */
+input[type="number"]{
+    -moz-appearance:textfield;
+}
+.greenColor{
+    color: green !important; /* !important makes sure that this will OVERWRITE any ore-written same property on same element, means even if we give some other values for this property for some element, in other CSS file, if this class is assigned to that element then due to !important this property will overwrite that property written somewhere else*/
+}
+.redColor{
+    color: red !important;
+}
+.skyColor{
+    color: rgb(5, 145, 184) !important;
+}
+.boldGreenColor{
+    font-weight: bold !important;
+    color: #04593a !important;
+}
+.boldBlueColor{
+    font-weight: bold !important;
+    color: #04277a !important;
+}

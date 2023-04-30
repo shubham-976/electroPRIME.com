@@ -1,0 +1,253 @@
+*{
+    margin:0;
+}
+/* Banner */
+.banner{
+    background-image: url("../../images/banner_bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height : 100vmin;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    font-family: "Oxygen";
+}
+.banner > p{
+    font: 400 4.3vh "Oxygen";
+    /* border: 2px solid yellow; */
+    margin-top: 4vmax;
+    margin-bottom: 15.9vmax;
+}
+.banner > h2{
+    font: 600 5.3vh "Oxygen";
+    margin-top: 9vmax;
+    /* border: 2px solid lime; */
+}
+.banner > a > button{
+    cursor : pointer;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 0;
+    padding:7px 5px;
+    transition : all 0.5s;
+    width:10%;
+    font: 500 2vh "Oxygen";
+    /* border: 2px solid pink; */
+}
+.banner > a :hover{
+    background-color:rgb(72, 71, 71);
+    color: white;
+    border-color: lime;
+    border-radius: 10px;
+}
+.banner::after{
+    content:"";
+    width:100vw;
+    height:100vmin;
+    background-color: white;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    max-width: 100%;
+    clip-path: polygon(100% 86%, 0% 100%, 100% 100%);
+
+}
+
+/* Below the banner */
+.homeHeading{
+    text-align: center;
+    font-family: Playfair Display;
+    font-size: 3.2vh;
+    border-bottom: 1px solid grey;
+    width:27vmax;
+    padding:5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4vmax;
+    margin-bottom: 1.5vmax;;
+}
+/* category section */
+.categoryContainer{
+    display: flex;
+    overflow-x: auto;
+    /* border: 2px solid red; */
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    background:linear-gradient(rgb(228, 238, 245), #f7f7f7);
+    padding: 0.9vmax 0.8vmax;
+    scroll-behavior: smooth;
+}
+.categoryContainer > a{
+    /* border: 2px solid lime; */
+    margin:2vmax;
+    font:500 1.3vmax black;
+    text-decoration: none;
+    background-color: #f7f7f7;
+    transition: all 0.5s;
+}
+.categoryContainer > a:hover{
+    transform: translateY(-1vmax);
+}
+.categoryContainer > a > p{
+    /* border: 2px solid pink; */
+    text-align: center;
+    color:rgba(0, 0, 0, 0.793);
+    font-weight: bold;
+}
+.categoryContainer > a > img{
+    height: 11vmax;
+}
+/* recommendation section */
+.recommendationContainer{
+    background:linear-gradient(rgb(221, 237, 245), white);
+    /* border: 2px solid blue; */
+}
+.recommendationContainer > div{
+    /* border: 2px solid red; */
+    display: flex;
+    overflow-x:auto;
+    scroll-behavior: smooth;
+    align-items: center;
+    justify-content: center;
+}
+.reBox{
+    padding:5vmax;
+    /* border: 2px solid red; */
+}
+.reBox > p{
+    text-align: center;
+    /* border: 2px solid green; */
+    margin: auto auto;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.618);
+    font-size: 1.7vmax;
+}
+
+/*Styling the container which containd various productCards*/
+.container{
+    display: flex;
+    margin:2vmax auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+    padding:1.5vmax 4.2vmax;
+    /* border: 2px solid red; */
+    background-color:rgba(255, 255, 255, 0.816);
+}
+
+/* Styling productCard */
+.productCard{
+    width:13vmax;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: rgb(48,48,48);
+    margin: 1.7vmax;
+    transition: all 0.5s;
+    padding: 1vmax;
+    /* border:1px solid red; */
+    background-color: #f7f7f7;
+}
+.productCard > img{
+    width: 13vmax;
+    /* border:1px solid red; */
+}
+.productCard > div{
+    margin: 0.5vmax 0;
+    display: flex;
+    justify-content: flex-start;
+    /* border:1px solid blue; */
+}
+.productCardSpan{
+    font: 300 0.9vmax "Roboto";
+    /* border:1px solid red; */
+    margin: auto 0;
+}
+.productCard > p{
+    font-family: "Roboto";
+    font-size: 1.2vmax;
+    margin: 1vmax 0vmax;
+    margin-bottom: 0;
+}
+.productCard > span{
+    color: rgb(176, 32, 7);
+    font-family: "Frankiln Gothic Medium";
+    font-size: 1vmax;
+    font-weight: 600;
+}
+.productCard:hover{
+    box-shadow: 0 0 5px rgba(15,15,15,0.26);
+    transform: translateY(-1vmax);
+}
+@media screen and (max-width: 900px){
+
+    .productCard > p{
+        font-size: 1.9vmax;
+    }
+    .productCard> div{
+        margin: 0vmax;
+        display: block;
+    }
+    .productCard > span{
+        font-size: 1.8vmax;
+    }
+    .productCard > div > span{
+        margin: 0 0;
+        font: 300 1.6vmax "Roboto";
+    }
+    .banner > p{
+        margin-top: 5vmax;
+        margin-bottom: 15.2vmax;
+    }
+    .banner > h2{
+        margin-top: 14.3vmax;
+    }
+    
+}
+@media screen and (max-width: 450px){
+    .banner{
+        height:120vmin;
+    }
+    .banner::after{
+        height:120vmin;
+    }
+    .banner > h2{
+        font: 600 4.2vh "Oxygen";
+    }
+    .banner > p{
+        font: 400 3.8vh "Oxygen";
+    }
+    .banner > a > button{
+        width: 20%;
+    }
+    .productCard > p{
+        font-size: 2.0vmax;
+    }
+    .productCard> div{
+        margin: 0vmax;
+        display: block;
+    }
+    .productCard > span{
+        font-size: 2vmax;
+    }
+    .productCard > div > span{
+        margin: 0 0;
+        font: 300 1.8vmax "Roboto";
+    }
+    .banner > p{
+        margin-top: 7vmax;
+        margin-bottom: 8vmax;
+    }
+    .banner > h2{
+        margin-top: 23vmax;
+    }
+    .homeHeading{
+        font-size: 2.9vh;
+    }
+    .categoryContainer > a > img{
+        height: 14vmax;
+    }
+}

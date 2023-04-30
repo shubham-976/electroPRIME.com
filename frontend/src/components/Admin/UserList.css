@@ -1,0 +1,31 @@
+.userListContainer {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    border-left: 1px solid rgba(0, 0, 0, 0.158);
+    min-height: 100vh;
+    /* border: 4px solid green;; */
+  }
+  .userListContainer > h1{
+    /* border: 2px solid red; */
+    margin: 15px auto;
+    padding: 25px 10px;
+    font-weight:400;
+    color: grey;
+  }
+  .userListHeading {
+    color: rgba(0, 0, 0, 0.733);
+    font: 300 2rem "Roboto";
+    text-align: center;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .userListContainer {
+      border-left: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.158);
+    }
+    .userListHeading {
+      font: 300 1.5rem "Roboto";
+    }
+
+  }

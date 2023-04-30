@@ -1,0 +1,257 @@
+.productsHeading{
+    margin:1.7vmax auto;
+    width: 15vw;
+    border-bottom: 1px solid grey;
+    padding: 2vmax;
+    color: rgba(0,0,0,0.678);
+    font:600 1.5vmax "Playfair Display";
+    text-align: center;
+}
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    padding:0 4.3vmax;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+    text-align: center;
+}
+#message{
+    font: 400 1.5vmax "Roboto";
+    padding:4vmax 6vmax;
+    color: rgba(0, 0, 0, 0.43);
+}
+.filterBox > button{
+    background-color: rgb(3, 190, 3);
+    border:none;
+    cursor:pointer;
+    color:white;
+    transition:all 0.5s;
+    font:500 0.8vmax "Roboto";
+    /* border-radius: 20px; */
+    padding: 0.5vmax 2vmax;
+    margin-top: 0;
+    margin-bottom: 0.6vmax;
+    outline: none;
+}
+.filterBox > button:hover{
+    background-color: rgb(4, 124, 4);
+}
+
+@media screen and (max-width:770px){
+    .products{
+        padding:0 4.1vmax;
+    }
+}
+@media screen and (max-width:500px){
+    .products{
+        padding:0 3.5vmax;
+    }
+}
+@media screen and (max-width:380px){
+    .products{
+        padding:0 1.9vmax;
+    }
+}
+
+/* css for pagination related things */
+.paginationBox{
+    display: flex;
+    justify-content: center;
+    margin: 6vmax;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+.page-item{
+    background-color: rgb(255,255,255);
+    list-style: none;
+    border:1px solid rgba(0,0,0,0.178);
+    padding:1vmax 1.5vmax;
+    transition:all 0.3s;
+    cursor:pointer;
+}
+.page-item:first-child{
+    border-radius: 5px 0 0 5px;
+}
+.page-item:last-child{
+    border-radius: 0 5px 5px 0;
+}
+.page-link{
+    text-decoration: none;
+    font: 300 0.9vmax "Roboto";
+    color:rgb(80,80,80);
+    transition:all 0.3s;
+}
+.page-item:hover{
+    background-color: rgb(230,230,230);
+}
+.page-item:hover .page-link{
+    color:rgb(80,80,80);
+}
+.pageItemActive{
+    background-color: #e60584;
+}
+.pageLinkActive{
+    color:white;
+}
+
+/* css for things inside filterBox */
+.filterBox{
+    width:10vmax;
+    position:absolute;
+    top:10vmax;
+    left:3vmax;
+}
+/* price filter */
+.priceBox{
+    margin:3px 2px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.405);
+    padding-bottom: 4px;
+}
+.minPrice{
+    width:37%;
+    border: none;
+    box-shadow: 0 0 2px rgba(0,0,0,0.674);
+    padding:3px 3px;
+    margin-left: 2px;
+    outline: none;
+    font:500 0.9vmax "Roboto";;
+}
+.minPrice:hover{
+    box-shadow: 0 0 3px rgba(0,0,0,0.774);
+}
+.maxPrice{
+    width:37%;
+    border: none;
+    box-shadow: 0 0 2px rgba(0,0,0,0.674);
+    padding:3px 3px;
+    outline: none;
+    font:400 0.9vmax "Roboto";;
+}
+.maxPrice:hover{
+    box-shadow: 0 0 3px rgba(0,0,0,0.774);
+}
+.priceBtn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4px;
+    width:40%;
+    border: none;
+    padding:2px 8px;
+    margin-top: 2px;
+    background-color: #e60584;
+    color: white;
+    border-radius: 20px;
+}
+.priceBtn:hover{
+    background-color: #cc0375(249, 65, 32);
+    cursor: pointer;
+}
+/*  Category filter*/
+.categoryBox{
+    padding:0px;
+}
+.category-link{
+    list-style: none;
+    color: rgba(0,0,0,0.61);
+    font:400 0.9vmax "Roboto";
+    margin:0.4vmax;
+    cursor:pointer;
+    transition:all 0.5s;
+}
+.category-link:hover{
+    color:#e60584;
+}
+/* rating filter */
+.filterBox > fieldset{
+    border: 1px solid rgba(0, 0, 0, 0.401);
+    padding: 1px 6px;
+}
+
+@media screen and (max-width:950px){
+    .page-link{
+        font:300 1.2vmax "Roboto"; 
+    }
+    .minPrice{
+        font:300 1.2vmax "Roboto"; 
+    }
+    .maxPrice{
+        font:300 1.2vmax "Roboto"; 
+    }
+    .category-link{
+        font:300 1.2vmax "Roboto"; 
+    }
+    .filterBox > p{ /*Typography is basically a <p></p> element */
+        font-size: 12px;
+    }
+    .filterBox > fieldset > legend{ /*Typography is basically a <p></p> element */
+        font-size: 12px;
+    }
+    .filterBox > button{
+        font: 500 1.2vmax "Roboto";
+        padding: 0.9vmax 1.5vmax;
+        width: 10vmax;
+        /* margin:0 2.5vmax; */
+    }
+    #message{
+        font: 400 1.7vmax "Roboto";
+    }
+}
+@media screen and (max-width:920px){
+    .minPrice{
+        width:80%;
+    }
+    .maxPrice{
+        width:80%;
+        margin-left:10px;
+    }
+    .filterBox > p{ /*Typography is basically a <p></p> element */
+        font-size: 13px;
+    }
+    .filterBox > fieldset > legend{ /*Typography is basically a <p></p> element */
+        font-size: 13px;
+    }
+}
+@media screen and (max-width:770px){
+    .filterBox{
+        width: 35vmax;
+        position:static;
+        margin:auto;
+    }
+    .page-link{
+        font:300 1.9vmax "Roboto"; 
+    }
+    .minPrice{
+        font:300 1.9vmax "Roboto"; 
+    }
+    .maxPrice{
+        font:300 1.9vmax "Roboto"; 
+    }
+    .category-link{
+        font:300 1.9vmax "Roboto"; 
+    }
+    .filterBox > p{ /*Typography is basically a <p></p> element */
+        text-align: center;
+    }
+    .filterBox > fieldset > legend{ /*Typography is basically a <p></p> element */
+        text-align: center;
+    }
+    .filterBox > button{
+        font: 500 1.7vmax "Roboto";
+        padding: 1.5vmax;
+        width: 20vmax;
+        margin:3vmax 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        /* border: 2px solid red; */
+    }
+    #message{
+        font: 400 2.6vmax "Roboto";
+    }
+    
+}

@@ -1,0 +1,128 @@
+.dashboard{
+    /* width:98vw; */
+    max-width: 100%;
+    /* display:grid; */
+    /* grid-template-columns: 1fr 5fr; */
+    /* position: absolute; */
+    background-color: white;
+    /* border: 2px solid green; */
+    box-sizing: border-box;
+}
+.dashBoardContainer{
+    /* border: 2px solid green; */
+    /* border-left: 1px solid grey; */
+    /* border: 2px solid red; */
+    width:99vw;
+    max-width: 99vw;
+    box-sizing: border-box;
+}
+
+.dashBoardContainer > h1{
+    color:rgba(0,0,0,0.700);
+    font:300 2rem "Roboto";
+    text-align: center;
+    width:50%;
+    padding:1.5rem;
+    margin:auto;
+}
+
+.dashboardSummary{
+    margin:2rem 0;
+    /* border:2px solid blue; */
+}
+.dashboardSummary > div{
+    /* border: 2px solid red; */
+    display: flex;
+    background-color: white;
+    justify-content: center;
+}
+.dashboardSummary > div > p{
+    background-color: rgba(70,117,218,0.9);
+    color:white;
+    padding:1.5rem;
+    width:100%;
+    margin:0 2rem;
+    text-align: center;
+    font: 300 1.3rem "Roboto";
+}
+.dashboardSummary > div:first-child > p{
+    background-color: rgba(113, 149, 228, 0.9);
+}
+.dashboardSummaryBox2 > a{
+    color:rgb(0,0,0);
+    font:300 2rem "Roboto";
+    text-align: center;
+    text-decoration: none;
+    background-color: #dddfe0;
+    padding:1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 100%;
+    height: 10vmax;
+    width:10vmax;
+    margin:2rem;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+}
+.dashboardSummaryBox2 > a:hover{
+    background-color: #ced0d1;
+}
+.dashboardSummaryBox2 > a:first-child{
+    background-color: #21013a;
+    color: white;
+}
+.dashboardSummaryBox2 > a:first-child:hover{
+    background-color: #18012b;
+}
+.dashboardSummaryBox2 > a:last-child{
+    background-color: #313131;
+    color: white;
+}
+.dashboardSummaryBox2 > a:last-child:hover{
+    background-color: #373636;
+}
+
+/* Revenue Chart : Line graph */
+.lineChart{
+    width:80%;
+    margin: auto;
+    background-color: #f7f7f7;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    padding:10px;
+}
+.doughnutChart{
+    width:28vmax;
+    margin: auto;
+    /* background-color: #f7f7f7; */
+    /* box-shadow: 2px 4px 12px rgba(0,0,0,.08); */
+    margin-top: 20px;
+}
+
+@media screen and (max-width:650px){
+    .dashBoardContainer > h1{
+        font:300 1.8rem "Roboto";
+    }
+    .dashboard{
+        /* grid-template-columns: 1fr; */
+        flex-direction: column;
+    }
+    .dashBoardContainer{
+        border-left: none;
+        border-top: 1px solid grey;
+    }
+    .dashboardSummary > div > p{
+        margin:0;
+        font: 300 1.1rem "Roboto";
+    }
+    .dashboardSummaryBox2 > a{
+        padding: 0.5rem;
+        margin:1rem;
+        font:300 0.9rem "Roboto";
+    }
+    .lineChart{
+        width:95%;
+        min-height: 33vh;
+        padding:4px;
+    }
+}

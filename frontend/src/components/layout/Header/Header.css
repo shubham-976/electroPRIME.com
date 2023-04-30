@@ -1,0 +1,32 @@
+.speedDial{
+    position:fixed;
+    right:1vmax;
+    top:1vmax;
+    /* border:3px solid yellow; */
+}
+.speedDialIcon{
+    height:47px;
+    width:47px;
+    border-radius: 100%;
+    /* border:3px solid red; */
+}
+@media screen and (max-width:870px) {
+    .speedDial{
+        right:0.8vmax;
+        top:0.8vmax;
+    }
+    .speedDialIcon{
+        height:40px;
+        width:40px;
+    }
+}
+@media screen and (max-width:485px) {
+    .speedDial{
+        right:0.7vmax;
+        top:0.7vmax;
+    }
+    .speedDialIcon{
+        height:35px;
+        width:35px;
+    }
+}

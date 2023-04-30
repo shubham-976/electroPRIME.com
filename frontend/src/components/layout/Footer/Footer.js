@@ -22,7 +22,7 @@ const Footer = () => {
                 <h1>electroPRIME.com</h1>
                 <h3>-- Best Deals at Best Prices --</h3>
             </div>
-            <p>Copyrights &copy; 2023 | www.electroPRIME.com | All Rights Reserved</p>
+            <p>Copyrights &copy; 2023 | electroprime-onlinestore.onrender.com | All Rights Reserved</p>
         </div>
         <div className="rightFooter">
             <h4>Connect with us</h4>

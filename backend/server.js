@@ -22,8 +22,9 @@ connectDatabase()
 //connecting to cloudinary
 cloudinary.config({cloud_name:process.env.CLOUDINARY_NAME, api_key:process.env.CLOUDINARY_API_KEY, api_secret:process.env.CLOUDINARY_API_SECRET})
 
+const port = process.env.PORT || 4000;
 const server = app.listen(process.env.PORT, ()=>{
-    console.log(`App Server is listening at http://localhost:${process.env.PORT}`)
+    console.log(`App Server is listening at http://localhost:${port}`)
 })
 
 /*Unhandled Promise-Rejection : Like/e.g. if unable to connect to mongodb due to some wrong mongodb link/url etc

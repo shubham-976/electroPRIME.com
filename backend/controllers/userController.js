@@ -14,8 +14,19 @@ exports.registerUser = asyncErrorHandlingFunction(async(req,res,next)=>{
     const {name,email,password} = req.body;
     const user = await User.create({name,email,password,avatar:{public_id:myCloud.public_id, url:myCloud.secure_url}}); //added to database
 
-    
-    tokenAndResponse(user, 201, "User Registered/Account created successfully", res);                               //create token save in cookies, also send json response asusual
+    const websiteURL = 'https://electroprime-onlinestore.onrender.com';
+    const message = `Dear ${name}, \n\nThankyou for registering on electroPRIME.com (an exclusive Electronics store) : \n\nWe offer a very vast varieties/categories of electronics products and that's too at best possible inbudget prices. Visit our website and grab the best deals as per your requirement. \nVisit : ${websiteURL} \n\n\n--Thankyou for using electroPRIME.com\n--Admin of electroPRIME`;
+    try{
+        await sendEmailToUser({
+            email:user.email, //isi user ko hme mail bhejni hai, 
+            subject:`${name}! Welcome to electroPRIME`,
+            message
+        });
+        tokenAndResponse(user, 201, "User Registered/Account created successfully", res);                               //create token save in cookies, also send json response asusual
+    }
+    catch(error){
+        return next(new ErrorHandler(error.message, 500));
+    }
 })
 
 //Login User (user already has account, just login)

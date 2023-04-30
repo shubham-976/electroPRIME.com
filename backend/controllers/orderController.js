@@ -11,12 +11,13 @@ exports.newOrder = asyncErrorHandlingFunction(async (req, res, next)=>{
 
     const order = await Order.create({shippingInfo, orderItems, paymentInfo, itemsPrice, taxPrice, shippingPrice, totalPrice, paidOn:Date.now(), user:req.user.id})
 
-    const message = `Dear ${req.user.name}, \n\n Thankyou for Placing Order at electroPRIME.com (an exclusive Electronics store) : \n\n  Your ORDER  is currently being processed and will be shipped soon. To keep track of the status of your order, please keep visiting your Orders-Section on our website.\n\n\n--Thankyou for using electroPRIME.com\n--Admin of electroPRIME`;
+    const orderSectionURL = `${req.protocol}://${req.get("host")}/orders`;
+    const message = `Dear ${req.user.name}, \n\nThankyou for Placing Order at electroPRIME.com (an exclusive Electronics store) : \n\nYour ORDER  is currently being processed and will be shipped soon. To keep track of the status of your order, please keep visiting your Orders-Section on our website.\nVisit : ${orderSectionURL}\n\n\n--Thankyou for using electroPRIME.com\n--Admin of electroPRIME`;
 
     try{
         await sendEmailToUser({
             email:req.user.email, //isi user ko hme mail bhejni hai, 
-            subject:`electroPRIME.com : Your Order Placed Successfully`,
+            subject:`${req.user.name}! : Your Order Placed Successfully`,
             message
         });
         res.status(201).json({

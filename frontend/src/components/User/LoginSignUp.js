@@ -61,6 +61,17 @@ const LoginSignUp = () => {
 
     const registerDataChange = (e) => {
         if (e.target.name === "avatar") {
+
+            //image size validation, it should be less than<=40KB.
+            const imgFileSize = e.target.files[0].size;
+            if(imgFileSize > 46080){ //40680 = 45*1024 Bytes = 45KiloBytes = 45KB
+                e.target.value = null;
+                setAvatarPreview("/profile.png");
+                setAvatar();
+                alert.error("Image Size exceeded 40KB. Please choose image of size <= 40KB")
+                return;
+            } 
+
             const reader = new FileReader();
 
             reader.onload = () => {

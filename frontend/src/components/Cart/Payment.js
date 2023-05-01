@@ -13,6 +13,7 @@ import { useRef } from 'react';
 import './Payment.css';
 import { useNavigate } from 'react-router-dom';
 import {clearErrors, createOrder} from "../../actions/orderAction"
+import { emptyTheCart } from '../../actions/cartAction';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 
 const Payment = () => {
@@ -87,6 +88,7 @@ const Payment = () => {
                         mode:"OnlinePaymentViaCard"
                     };
                     dispatch(createOrder(order)); //creating order when payment completed/succeeded
+                    dispatch(emptyTheCart());
                     navigate("/success");
                 }
                 else{
@@ -110,6 +112,7 @@ const Payment = () => {
             mode:"CashOnDelivery"
         };
         dispatch(createOrder(order)); //creating order when payment completed/succeeded
+        dispatch(emptyTheCart());
         navigate("/success");
     }
 

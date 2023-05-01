@@ -224,7 +224,13 @@ exports.getSingleUser = asyncErrorHandlingFunction(async (req, res, next)=>{
 //Update Role of a User -- (ADMIN only)
 exports.updateUserRole = asyncErrorHandlingFunction(async (req, res, next)=>{
     
-    const newUserData = {name:req.body.name, email:req.body.email, role:req.body.role}; //entered by admin, he can only update name,email,role of a user
+    const newUserData = {role:req.body.role}; //entered by admin, he can only update role of a user
+
+    //means its a request for converting an admin to user and their is only 1 admin(himself) then don't allow this conversion becoz atleast one admin must be there
+    const counts = await User.find({role:"admin"}).count();
+    if(req.body.role==="user" && counts===1){
+        return next(new ErrorHandler(`This role Change is NOT possible because atleast 1 Admin must be there.`));
+    }
 
     let user = await User.findById(req.params.id);
     if(!user){
@@ -235,7 +241,7 @@ exports.updateUserRole = asyncErrorHandlingFunction(async (req, res, next)=>{
 
     res.status(200).json({
         success:true,
-        message:"A user's info/role changed by admin successfully."
+        message:"A user's role changed by admin successfully."
     })
 })
 //Delete a User -- (ADMIN only)

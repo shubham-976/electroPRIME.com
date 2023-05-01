@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_CART_ITEM, SAVE_SHIPPING_INFO } from "../constants/cartConstants";
+import { ADD_TO_CART, REMOVE_CART_ITEM, SAVE_SHIPPING_INFO,EMPTY_THE_CART } from "../constants/cartConstants";
 import axios from "axios";
 
 //add to cart, a product
@@ -27,6 +27,14 @@ export const removeItemsFromCart = (id)=>async(dispatch, getState)=>{
     dispatch({
         type:REMOVE_CART_ITEM,
         payload:id, //id of product which is in cart and we want to remove it from cart
+    })
+
+    localStorage.setItem("cartItems", JSON.stringify(getState().cart_.cartItems));
+}
+//make the cart empty, when order is placed
+export const emptyTheCart = () => async(dispatch, getState)=>{
+    dispatch({
+        type:EMPTY_THE_CART
     })
 
     localStorage.setItem("cartItems", JSON.stringify(getState().cart_.cartItems));

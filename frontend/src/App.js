@@ -38,6 +38,7 @@ import ProductReviews from "./components/Admin/ProductReviews.js"
 import About from "./components/layout/About/About.js"
 import Contact from "./components/layout/Contact/Contact.js"
 import PageNotFound from "./components/layout/PageNotFound/PageNotFound.js"
+import AllProductsCategorized from "./components/Product/AllProductsCategorized.js"
 import axios from "axios";
 //below 2 things are needed here, so that stripe/react-js components work in Payment.js
 import{Elements} from "@stripe/react-stripe-js";
@@ -74,6 +75,7 @@ function App() {
         <Route exact path="/" element={<Home/>}></Route>
         <Route exact path="/product/:id" element={<SingleProductDetails/>}></Route>
         <Route exact path="/products" element={<AllProducts/>}></Route>
+        <Route exact path="/productsCategorized/:categorychoosen" element={<AllProductsCategorized/>}></Route>
         <Route path="/products/:keyword" element={<AllProducts/>}></Route>
         <Route exact path="/search" element={<Search/>}></Route>
         <Route exact path="/login" element={<LoginSignUp/>}></Route>

@@ -23,10 +23,11 @@ const ProductReviews = () => {
   const { error: deleteError, isDeleted } = useSelector((state) => state.review_);
 
   const [productId, setProductId] = useState("");
+  const [wrongIdEntered, setWrongIdEntered] = useState(false);
 
   const seeProductReviewsHandler = (e) => {
     e.preventDefault();
-
+    setWrongIdEntered(false);
     dispatch(getProductReviews(productId));
   }
   const deleteReviewHandler = (revId) => {
@@ -42,11 +43,12 @@ const ProductReviews = () => {
     }
 
   useEffect(() => {
-    if(productId.length === 24){
-      dispatch(getProductReviews(productId))
-    }
+    // if(productId.length === 24){
+    //   dispatch(getProductReviews(productId))
+    // }
     if (error) {
       alert.error(error);
+      setWrongIdEntered(true);
       dispatch(clearErrors());
     }
 
@@ -127,21 +129,18 @@ const ProductReviews = () => {
               disabled={(loading ? true : false) || (productId === "" ? true : false)}>See Reviews
             </Button>
           </form>
-
-          {loading===false && reviews && reviews.length > 0 ? (
-            <DataGrid
-              rows={rows}
-              columns={columns}
-              pageSize={10}
-              rowsPerPageOptions={[10]}
-              disableSelectionOnClick
-              className='productListTable'
-              autoHeight
-            />
-          ) : (
-            <h1 className='productReviewsFormHeading'>No Reviews Found for this Product</h1>
+          {wrongIdEntered===true ? (<h1 className='productReviewsFormHeading'>No product with such ID</h1>) :(
+            loading===false && reviews && reviews.length >= 0 ? (
+              <DataGrid
+                rows={rows}
+                columns={columns}
+                pageSize={10}
+                rowsPerPageOptions={[10]}
+                disableSelectionOnClick
+                className='productListTable'
+                autoHeight
+              />):(<h1 className='productReviewsFormHeading'>---</h1>)
           )}
-
         </div>
          {/* confirmation box before deleting */}
          <Dialog

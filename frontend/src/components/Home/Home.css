@@ -38,10 +38,8 @@
     /* border: 2px solid pink; */
 }
 .banner > a :hover{
-    background-color:rgb(72, 71, 71);
+    background-color:rgb(30, 30, 30);
     color: white;
-    border-color: lime;
-    border-radius: 10px;
 }
 .banner::after{
     content:"";
@@ -79,24 +77,25 @@
     padding: 0.9vmax 0.8vmax;
     scroll-behavior: smooth;
 }
-.categoryContainer > a{
+.categoryContainer > div{
     /* border: 2px solid lime; */
     margin:2vmax;
     font:500 1.3vmax black;
     text-decoration: none;
     background-color: #f7f7f7;
     transition: all 0.5s;
+    cursor: pointer;
 }
-.categoryContainer > a:hover{
+.categoryContainer > div:hover{
     transform: translateY(-1vmax);
 }
-.categoryContainer > a > p{
+.categoryContainer > div > p{
     /* border: 2px solid pink; */
     text-align: center;
     color:rgba(0, 0, 0, 0.793);
     font-weight: bold;
 }
-.categoryContainer > a > img{
+.categoryContainer > div > img{
     height: 11vmax;
 }
 /* recommendation section */
@@ -128,7 +127,10 @@
 /*Styling the container which containd various productCards*/
 .container{
     display: flex;
-    margin:2vmax auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vmax;
+    margin-bottom: 1vmax;
     flex-wrap: wrap;
     justify-content: center;
     max-width: 100%;
@@ -181,6 +183,22 @@
 .productCard:hover{
     box-shadow: 0 0 5px rgba(15,15,15,0.26);
     transform: translateY(-1vmax);
+}
+#allProductsBtn{
+    border: 1px solid grey;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding:6px 12px;
+    font: 600 1.3vmax "Playfair Display";
+    background-color: rgb(233, 233, 233);
+    color: black;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+#allProductsBtn:hover{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.759);
 }
 @media screen and (max-width: 900px){
 
@@ -247,7 +265,7 @@
     .homeHeading{
         font-size: 2.9vh;
     }
-    .categoryContainer > a > img{
+    .categoryContainer > div > img{
         height: 14vmax;
     }
 }

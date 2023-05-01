@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import "./AllProducts.css";
+import "./AllProductsCategorized.css";
 import { useSelector, useDispatch } from 'react-redux';
 import { clearErrors, getAllProducts } from '../../actions/productAction';
 import Loader from '../layout/Loader/Loader';
@@ -13,15 +13,16 @@ import MetaData from '../layout/MetaData';
 
 const categories = ["Laptop, PC", "Phone", "Tablet", "Speaker", "Headphone", "Earbuds", "Smartwatch", "Camera", "Air Conditioner", "LED TV", "Refrigerator", "Washing Machine", "Microwave", "Printer", "Others"]
 
-const AllProducts = () => {
+const AllProductsCategorized = () => {
     const dispatch = useDispatch();
     const alert = useAlert();
+    const {categorychoosen} = useParams();
 
     const [currentPage, setCurrentPage] = useState(1);
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(250000);
     const [price, setPrice] = useState([minPrice, maxPrice]); //price is array of 2 numbers minprice,maxprice
-    const [category, setCategory] = useState("");
+    const [category, setCategory] = useState(categorychoosen);
     const [avgRating, setAvgRating] = useState(0);
 
     const {loading, products, productsCount, error, resultPerPage, filteredProductsCount} = useSelector((state) => state.products_);
@@ -137,4 +138,4 @@ const AllProducts = () => {
   )
 }
 
-export default AllProducts
+export default AllProductsCategorized

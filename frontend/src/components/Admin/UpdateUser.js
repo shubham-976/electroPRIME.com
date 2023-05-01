@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import "./CreateNewProduct.css";
+import "./UpdateUser.css"
 import { useSelector, useDispatch } from 'react-redux';
 import { useAlert } from 'react-alert';
 import {Button} from "@material-ui/core";
@@ -24,8 +25,6 @@ const UpdateUser = () => {
     const {loading, error, user} = useSelector((state) => state.userDetails_); 
     const {loading:updateLoading, error:updateError, isUpdated} = useSelector((state) => state.profile_); /* becoz we have written updateUser(by admin) and deleteUser(by admin) related reducer in the profileReducer of file userReducer.js instead of making seperate reducer for this */
 
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
     const [role, setRole] = useState("");
     
     const userId = id;
@@ -36,8 +35,6 @@ const UpdateUser = () => {
          }
          else{
             //means now user state contains the same current user (whose id admin is going through)
-            setName(user.name);
-            setEmail(user.email);
             setRole(user.role);
          }
 
@@ -50,7 +47,7 @@ const UpdateUser = () => {
             dispatch(clearErrors());
         }
         if(isUpdated){
-            alert.success("User Details Updated Successfully")
+            alert.success("User Role Updated Successfully")
             navigate("/admin/users")
             dispatch({type:UPDATE_USER_RESET});
         }
@@ -61,8 +58,6 @@ const UpdateUser = () => {
 
         const myForm = new FormData();
 
-        myForm.set("name", name);
-        myForm.set("email", email);
         myForm.set("role", role);
 
         dispatch(updateUser(userId, myForm));
@@ -70,7 +65,7 @@ const UpdateUser = () => {
 
   return (
     <>
-     <MetaData title="Update User - ADMIN"/>
+     <MetaData title="Update User Role - ADMIN"/>
 
         <Sidebar/>
      <div className="dashboard">
@@ -81,27 +76,15 @@ const UpdateUser = () => {
                 className='createProductForm'
                 encType='multipart/form-data'
                 onSubmit={updateUserSubmitHandler}>
-                   <h1>Update User</h1>
+                   <h1>Update User Role</h1>
    
                    <div>
                        <PersonIcon/>
-                       <input 
-                        type="text"
-                        placeholder='User Name'
-                        required
-                        value={name}
-                        onChange={(e)=>setName(e.target.value)}
-                       />
+                       <p>{user.name}</p>
                    </div>
                    <div>
                        <MailOutlineIcon/>
-                       <input 
-                        type="email"
-                        placeholder='User Email'
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        />
+                       <p>{user.email}</p>
                    </div>
                    <div>
                        <VerifiedUserIcon/>

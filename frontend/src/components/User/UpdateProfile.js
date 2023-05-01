@@ -36,6 +36,17 @@ const UpdateProfile = () => {
     }
 
     const updateProfileDataChange = (e) => {
+
+        //image size validation, it should be less than<=40KB.
+        const imgFileSize = e.target.files[0].size;
+        if(imgFileSize > 46080){ //40680 = 45*1024 Bytes = 45KiloBytes = 45KB
+            e.target.value = null;
+            setAvatarPreview(user.avatar.url);
+            setAvatar("");
+            alert.error("Image Size exceeded 40KB. Either choose image of size <= 40KB or leave it as it is")
+            return;
+        }  
+
         const reader = new FileReader();
 
         reader.onload = () => {

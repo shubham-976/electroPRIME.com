@@ -22,7 +22,8 @@ For frontend : cd frontend  , npm install
 **To run on Local Machine :**  
 * install dependencies as mentioned above , then
 * cd frontend, npm run build
-* in root folder : npm run dev (i.e. node backend/server.js)
+* in root folder (run the backend server, we made it to run at localhost:4000): npm run dev (i.e. node backend/server.js)  
+* no worries that frontend sever not started seperately, because we don't need to do that, the build folder will be produced inside frontend folder on running (npm run build inside frontend) and in our backend app.js we have joined our backend to render frontend->build>static>index.html thus when backend server starts, it will start rendering our frontend also automatically
 * now in browser go for : localhost:4000 , and done, site is live on local machine
 
 

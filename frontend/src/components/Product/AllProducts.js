@@ -24,9 +24,11 @@ const AllProducts = () => {
     const [category, setCategory] = useState("");
     const [avgRating, setAvgRating] = useState(0);
 
+    const {keyword} = useParams();
+    const [keyword_, setKeyword_] = useState(keyword);
+
     const {loading, products, productsCount, error, resultPerPage, filteredProductsCount} = useSelector((state) => state.products_);
 
-    const {keyword} = useParams();
 
 
     const setCurrentPageNo = (e)=>{
@@ -46,8 +48,8 @@ const AllProducts = () => {
         alert.error(error);
         dispatch(clearErrors());
       }
-      dispatch(getAllProducts(keyword, currentPage, price, category, avgRating));
-    }, [dispatch, keyword, currentPage, price, category, avgRating, alert, error])
+      dispatch(getAllProducts(keyword_, currentPage, price, category, avgRating));
+    }, [dispatch, keyword_, currentPage, price, category, avgRating, alert, error])
     
     let count = filteredProductsCount;
 
@@ -59,6 +61,7 @@ const AllProducts = () => {
       setPrice([minPrice, maxPrice]);
       setCategory("");
       setAvgRating(0);
+      setKeyword_("");
     }
 
   return (
